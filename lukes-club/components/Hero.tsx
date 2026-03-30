@@ -82,7 +82,7 @@ export default function Hero() {
 
         {/* Floating stats cards */}
         <div
-          className="absolute top-20 left-8 md:left-16 z-10 transition-all duration-1000"
+          className="absolute top-24 right-8 md:right-16 z-10 transition-all duration-1000"
           style={{ opacity: loaded ? 1 : 0, transform: loaded ? 'translateY(0)' : 'translateY(-20px)', transitionDelay: '0.8s' }}
         >
           <div className="bg-black/60 border border-white/10 backdrop-blur-md p-5 min-w-[160px]">
@@ -94,7 +94,7 @@ export default function Hero() {
         </div>
 
         <div
-          className="absolute top-36 left-8 md:left-16 z-10 transition-all duration-1000"
+          className="absolute top-52 right-8 md:right-16 z-10 transition-all duration-1000"
           style={{ opacity: loaded ? 1 : 0, transform: loaded ? 'translateY(0)' : 'translateY(-20px)', transitionDelay: '1s' }}
         >
           <div className="bg-black/60 border border-white/10 backdrop-blur-md p-5 min-w-[160px]">
