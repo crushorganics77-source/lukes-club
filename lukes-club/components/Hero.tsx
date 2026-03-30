@@ -44,8 +44,8 @@ export default function Hero() {
     const handleMouse = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY })
       const animate = () => {
-        follower.x += (e.clientX - follower.x) * 0.12
-        follower.y += (e.clientY - follower.y) * 0.12
+        follower.x += (e.clientX - follower.x) * 0.35
+        follower.y += (e.clientY - follower.y) * 0.35
         setFollowerPos({ x: follower.x, y: follower.y })
       }
       requestAnimationFrame(animate)
