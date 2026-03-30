@@ -120,7 +120,7 @@ export default function Hero() {
             <h1
               className="font-display font-light text-white leading-none"
               style={{
-                fontSize: 'clamp(5rem, 18vw, 18rem)',
+                fontSize: 'clamp(4rem, 12vw, 12rem)',
                 transform: loaded ? 'translateY(0)' : 'translateY(100%)',
                 transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                 transitionDelay: '0.3s',
