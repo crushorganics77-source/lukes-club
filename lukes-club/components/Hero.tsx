@@ -34,21 +34,12 @@ function AnimatedNumber({ target, suffix = '', duration = 2000 }: { target: numb
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 })
-  const [followerPos, setFollowerPos] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100)
 
-    let follower = { x: 0, y: 0 }
-
     const handleMouse = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY })
-      const animate = () => {
-        follower.x += (e.clientX - follower.x) * 0.35
-        follower.y += (e.clientY - follower.y) * 0.35
-        setFollowerPos({ x: follower.x, y: follower.y })
-      }
-      requestAnimationFrame(animate)
     }
     window.addEventListener('mousemove', handleMouse)
     return () => window.removeEventListener('mousemove', handleMouse)
@@ -60,10 +51,6 @@ export default function Hero() {
       <div
         className="cursor"
         style={{ transform: `translate(${cursorPos.x - 4}px, ${cursorPos.y - 4}px)` }}
-      />
-      <div
-        className="cursor-follower"
-        style={{ transform: `translate(${followerPos.x - 18}px, ${followerPos.y - 18}px)` }}
       />
 
       <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
