@@ -5,51 +5,69 @@ const testimonials = [
   {
     name: 'James K.',
     role: 'Founding Member',
-    tier: 'Gold',
+    tier: 'Platinum',
     text: 'The network here is unlike anything I\'ve experienced. Within my first month I\'d connected with three potential business partners. Worth every penny.',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80',
+    stars: 5,
   },
   {
     name: 'Will C.',
     role: 'Founding Member',
-    tier: 'Gold',
+    tier: 'Platinum',
     text: 'Being a founding member has been one of the best decisions I\'ve made. The access and opportunities that we are able to provide are unmatched.',
     image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80',
+    stars: 5,
   },
   {
     name: 'Sarah Mitchell',
     role: 'COO, BrightPath SaaS',
-    tier: 'Silver',
+    tier: 'Gold',
     text: 'The concierge service alone is worth the membership. I\'ve had tables secured at restaurants with 3-month waiting lists. Truly elite access.',
     image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&q=80',
+    stars: 5,
   },
   {
     name: 'Marcus T.',
     role: 'Serial Entrepreneur',
-    tier: 'Gold',
+    tier: 'Platinum',
     text: 'I\'ve been part of many masterminds and networks. None come close to the calibre of individuals inside Lukes. This is the real deal.',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80',
+    stars: 5,
   },
   {
     name: 'Alexandra R.',
     role: 'Founder, Luminary Ventures',
-    tier: 'Silver',
+    tier: 'Gold',
     text: 'Three investment deals closed through connections made here in under 6 months. The ROI speaks for itself.',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
+    stars: 5,
   },
   {
     name: 'David Chen',
     role: 'Tech Executive',
-    tier: 'Bronze',
-    text: 'Started on Bronze and I\'m already upgrading to Silver. The events alone have been worth more than I paid. Incredible community.',
+    tier: 'Silver',
+    text: 'Started on Silver and I\'m already upgrading to Gold. The events alone have been worth more than I paid. Incredible community.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    stars: 5,
   },
 ]
 
 function tierColor(tier: string) {
+  if (tier === 'Platinum') return '#E5E4E2'
   if (tier === 'Gold') return '#C9A84C'
-  if (tier === 'Silver') return '#C0C0C0'
-  return '#CD7F32'
+  return '#C0C0C0'
+}
+
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex gap-1 mb-4">
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#C9A84C">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      ))}
+    </div>
+  )
 }
 
 export default function Reviews() {
@@ -68,18 +86,33 @@ export default function Reviews() {
   return (
     <section id="reviews" className="py-32 md:py-48 bg-black" ref={ref}>
       <div className="max-w-screen-xl mx-auto px-8 md:px-16">
-        {/* Header */}
+
+        {/* Header with rating stat */}
         <div
           className="text-center mb-20 transition-all duration-1000"
           style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(30px)' }}
         >
           <span className="section-label block mb-6">Member Stories</span>
           <h2
-            className="font-display font-light text-white"
+            className="font-display font-light text-white mb-8"
             style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)' }}
           >
             What They <em className="text-gold">Say</em>
           </h2>
+
+          {/* Rating stat */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#C9A84C">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <p className="text-white/50 text-sm tracking-widest">
+              <span className="text-white font-semibold">4.9</span> out of 5 — rated by <span className="text-white font-semibold">70+ members</span>
+            </p>
+          </div>
         </div>
 
         {/* Featured + grid */}
@@ -94,6 +127,7 @@ export default function Reviews() {
             }}
           >
             <div>
+              <Stars count={testimonials[0].stars} />
               <div className="text-5xl font-display text-gold/20 mb-6">"</div>
               <p className="text-white text-base leading-relaxed mb-8">
                 {testimonials[0].text}
@@ -134,6 +168,7 @@ export default function Reviews() {
                 transition: `all 0.7s ease ${(i + 1) * 0.1}s`,
               }}
             >
+              <Stars count={t.stars} />
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div
@@ -160,38 +195,6 @@ export default function Reviews() {
               </span>
             </div>
           ))}
-        </div>
-
-        {/* Case study card */}
-        <div
-          className="mt-4 relative overflow-hidden rounded-none"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'all 0.8s ease 0.6s',
-          }}
-        >
-          <div className="bg-white/3 border border-white/10 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center">
-            <div
-              className="w-full md:w-64 h-48 md:h-full rounded-xl bg-cover bg-center flex-shrink-0 flex items-end p-6"
-              style={{ backgroundImage: `url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80')`, filter: 'grayscale(100%)' }}
-            >
-              <div className="bg-black/80 p-4">
-                <p className="text-white font-bold text-lg leading-tight">How Puno Automated 80% of Lead Handling</p>
-              </div>
-            </div>
-            <div>
-              <span className="section-label block mb-4">Case Study</span>
-              <h3 className="font-display text-3xl text-white font-light mb-4">
-                Real results from real members
-              </h3>
-              <p className="text-white/50 text-sm leading-relaxed mb-6">
-                Discover how our Gold members are leveraging the Lukes network and resources to scale their businesses
-                faster than ever — with access that money alone can't buy.
-              </p>
-              <button className="btn-outline">Read Case Study →</button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
