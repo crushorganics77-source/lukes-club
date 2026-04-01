@@ -32,7 +32,7 @@ body {
   color: var(--white);
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
 /* Custom Cursor */
