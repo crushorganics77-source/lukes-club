@@ -4,6 +4,7 @@ import About from '@/components/About'
 import Gallery from '@/components/Gallery'
 import Memberships from '@/components/Memberships'
 import Reviews from '@/components/Reviews'
+import SocialFeed from '@/components/SocialFeed'
 import VideoSection from '@/components/VideoSection'
 import Footer from '@/components/Footer'
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Gallery />
       <Memberships />
       <Reviews />
+      <SocialFeed />
       <VideoSection />
       <Footer />
     </main>
