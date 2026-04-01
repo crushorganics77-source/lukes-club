@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -73,7 +74,7 @@ export default function Footer() {
                 {['X', 'In', 'Be', 'Ig'].map((s) => (
                   <button
                     key={s}
-                    className="w-10 h-10 rounded-full border border-white/10 text-white/40 text-xs hover:border-gold hover:text-gold transition-all duration-300 font-bold"
+                    className="w-10 h-10 rounded-full border border-white/10 text-white/40 text-xs hover:border-white hover:text-white transition-all duration-300 font-bold"
                   >
                     {s}
                   </button>
@@ -85,27 +86,22 @@ export default function Footer() {
           {/* Links */}
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <p className="text-[9px] tracking-widest text-white/30 uppercase mb-6">Pages</p>
+              <p className="text-[9px] tracking-widests text-white/30 uppercase mb-6">Pages</p>
               <ul className="space-y-3">
-                {['Home', 'About', 'Services', 'Pricing', 'Blog', 'Contact'].map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
-                      {l}
-                    </a>
-                  </li>
-                ))}
+                <li><Link href="/" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Home</Link></li>
+                <li><a href="/#about-us" className="text-white/60 text-sm hover:text-white transition-colors duration-300">About</a></li>
+                <li><a href="/#memberships" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Memberships</a></li>
+                <li><a href="/#gallery" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Gallery</a></li>
+                <li><a href="/#reviews" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Reviews</a></li>
               </ul>
             </div>
             <div>
               <p className="text-[9px] tracking-widest text-white/30 uppercase mb-6">Utility</p>
               <ul className="space-y-3">
-                {['Style Guide', 'Privacy Policy', 'Terms', 'Cookie Policy', 'Members Login'].map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-white/60 text-sm hover:text-gold transition-colors duration-300">
-                      {l}
-                    </a>
-                  </li>
-                ))}
+                <li><Link href="/privacy-policy" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Terms</Link></li>
+                <li><Link href="/cookie-policy" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Cookie Policy</Link></li>
+                <li><Link href="/dashboard" className="text-white/60 text-sm hover:text-white transition-colors duration-300">Members Login</Link></li>
               </ul>
             </div>
           </div>
