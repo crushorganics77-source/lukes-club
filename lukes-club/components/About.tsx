@@ -29,9 +29,9 @@ export default function About() {
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}
             >
               Inside<br />
-              <em className="text-gold">The Club</em>
+              <em className="text-platinum">The Club</em>
             </h2>
-            <div className="gold-line mb-8" style={{ margin: '0' }} />
+            <div className="platinum-line mb-8" style={{ margin: '0' }} />
           </div>
 
           {/* Right */}
@@ -64,12 +64,12 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
             {[
-              { title: '24/7 Concierge', desc: 'One message. Any request. Day or night, a dedicated concierge handles it for you.', tier: 'Bronze', color: '#CD7F32' },
-              { title: 'Exclusive Events', desc: 'Sold-out tickets, guest lists, private parties in every major city.', tier: 'Bronze', color: '#CD7F32' },
-              { title: 'Inner Circle', desc: 'A private Discord community of driven individuals. Accountability, connections, and direct access.', tier: 'Bronze', color: '#CD7F32' },
-              { title: 'Restaurant Bookings', desc: 'Impossible tables, secured. We get you into the rooms others can\'t.', tier: 'Silver', color: '#C0C0C0' },
-              { title: 'Finance & Wealth', desc: 'Private banking, watch and whisky investment, and deal flow for serious operators.', tier: 'Silver', color: '#C0C0C0' },
-              { title: 'Private Travel', desc: 'Private jets, luxury cars, five-star hotels. Your travel, elevated in every direction.', tier: 'Gold', color: '#C9A84C' },
+              { title: '24/7 Concierge', desc: 'One message. Any request. Day or night, a dedicated concierge handles it for you.', tier: 'Silver', color: '#C0C0C0' },
+              { title: 'Exclusive Events', desc: 'Sold-out tickets, guest lists, private parties in every major city.', tier: 'Silver', color: '#C0C0C0' },
+              { title: 'Inner Circle', desc: 'A private Discord community of driven individuals. Accountability, connections, and direct access.', tier: 'Silver', color: '#C0C0C0' },
+              { title: 'Restaurant Bookings', desc: 'Impossible tables, secured. We get you into the rooms others can\'t.', tier: 'Gold', color: '#C9A84C' },
+              { title: 'Finance & Wealth', desc: 'Private banking, watch and whisky investment, and deal flow for serious operators.', tier: 'Gold', color: '#C9A84C' },
+              { title: 'Private Travel', desc: 'Private jets, luxury cars, five-star hotels. Your travel, elevated in every direction.', tier: 'Platinum', color: '#E5E4E2' },
             ].map(({ title, desc, tier, color }, i) => (
               <div
                 key={title}
@@ -86,7 +86,7 @@ export default function About() {
                     {tier}
                   </span>
                 </div>
-                <h3 className="font-display text-2xl font-light text-white mb-3 group-hover:text-gold transition-colors duration-300">
+                <h3 className="font-display text-2xl font-light text-white mb-3 group-hover:text-platinum transition-colors duration-300">
                   {title}
                 </h3>
                 <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
