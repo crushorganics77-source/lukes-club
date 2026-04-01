@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 const tiers = [
   {
     num: '01',
-    name: 'Bronze',
+    name: 'Silver',
     tagline: 'The Foundation',
     price: '£497',
     period: '/month',
@@ -18,17 +18,17 @@ const tiers = [
     ],
     color: '#FFFFFF',
     bg: 'from-[#2a1a0a] to-[#1a0f05]',
-    cta: 'Apply for Bronze',
+    cta: 'Apply for Silver',
   },
   {
     num: '02',
-    name: 'Silver',
+    name: 'Gold',
     tagline: 'The Operator',
     price: '£997',
     period: '/month',
     description: 'For the serious operator. Add restaurant bookings, finance & wealth tools, and elevated deal flow to your arsenal.',
     features: [
-      'Everything in Bronze',
+      'Everything in Silver',
       'Impossible Restaurant Bookings',
       'Finance & Wealth Access',
       'Private Banking Introductions',
@@ -37,18 +37,18 @@ const tiers = [
     ],
     color: '#AAAAAA',
     bg: 'from-[#1a1a1a] to-[#0f0f0f]',
-    cta: 'Apply for Silver',
+    cta: 'Apply for Gold',
     featured: true,
   },
   {
     num: '03',
-    name: 'Gold',
+    name: 'Platinum',
     tagline: 'The Elite',
     price: '£2,497',
     period: '/month',
     description: 'Unrestricted access to everything. Private travel, the founding member network, and true white-glove treatment.',
     features: [
-      'Everything in Silver',
+      'Everything in Gold',
       'Private Jets & Luxury Travel',
       'Five-Star Hotel Access',
       'Founding Member Network',
@@ -57,7 +57,7 @@ const tiers = [
     ],
     color: '#FFFFFF',
     bg: 'from-[#1a1505] to-[#0f0d02]',
-    cta: 'Apply for Gold',
+    cta: 'Apply for Platinum',
   },
 ]
 
@@ -88,7 +88,7 @@ export default function Memberships() {
             style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)' }}
           >
             MEMBERSHIP<br />
-            <em className="text-gold">TIERS</em>
+            <em className="text-white">TIERS</em>
           </h2>
           <p className="text-white/50 text-sm leading-relaxed">
             Whether you're just starting out or scaling to new heights, we have a membership built
