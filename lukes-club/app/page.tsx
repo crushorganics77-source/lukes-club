@@ -6,6 +6,7 @@ import Memberships from '@/components/Memberships'
 import Reviews from '@/components/Reviews'
 import SocialFeed from '@/components/SocialFeed'
 import VideoSection from '@/components/VideoSection'
+import ParallaxScene from '@/components/ParallaxScene'
 import FAQ from '@/components/FAQ'
 import Footer from '@/components/Footer'
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Reviews />
       <SocialFeed />
       <VideoSection />
+      <ParallaxScene />
       <FAQ />
       <Footer />
     </main>
