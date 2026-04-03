@@ -33,34 +33,14 @@ function AnimatedNumber({ target, suffix = '', duration = 2000 }: { target: numb
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
-  const [mousePos, setMousePos] = useState({ x: -999, y: -999 })
-  const heroRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100)
   }, [])
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = heroRef.current?.getBoundingClientRect()
-    if (!rect) return
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    })
-  }
-
-  const handleMouseLeave = () => {
-    setMousePos({ x: -999, y: -999 })
-  }
-
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex flex-col overflow-hidden bg-black"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Background image */}
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-black">
+      {/* Background image with overlay */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -69,49 +49,7 @@ export default function Hero() {
             filter: 'grayscale(30%)',
           }}
         />
-        {/* Base dark overlay */}
-        <div className="absolute inset-0 bg-black/75" />
-
-        {/* Spotlight effect — follows mouse */}
-        <div
-          className="absolute inset-0 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(circle 300px at ${mousePos.x}px ${mousePos.y}px,
-              rgba(255,255,255,0.08) 0%,
-              rgba(255,255,255,0.04) 30%,
-              transparent 70%
-            )`,
-            mixBlendMode: 'screen',
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* Spotlight reveal on image — lifts the dark overlay where mouse is */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(circle 350px at ${mousePos.x}px ${mousePos.y}px,
-              rgba(0,0,0,0.2) 0%,
-              rgba(0,0,0,0.6) 40%,
-              rgba(0,0,0,0.75) 70%
-            )`,
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* Gold glow at cursor */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(circle 180px at ${mousePos.x}px ${mousePos.y}px,
-              rgba(201,168,76,0.06) 0%,
-              transparent 70%
-            )`,
-            pointerEvents: 'none',
-          }}
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       </div>
 
@@ -142,7 +80,6 @@ export default function Hero() {
 
       {/* Main hero content */}
       <div className="relative z-10 flex flex-col items-start justify-end flex-1 px-8 md:px-16 pb-24">
-        {/* Eyebrow */}
         <div
           className="mb-8 transition-all duration-1000"
           style={{ opacity: loaded ? 1 : 0, transform: loaded ? 'translateY(0)' : 'translateY(20px)', transitionDelay: '0.2s' }}
@@ -150,7 +87,6 @@ export default function Hero() {
           <span className="section-label">Private Members Club</span>
         </div>
 
-        {/* Big heading */}
         <div className="overflow-hidden mb-4">
           <h1
             className="font-display font-light text-white leading-none"
@@ -165,7 +101,6 @@ export default function Hero() {
           </h1>
         </div>
 
-        {/* Bottom content */}
         <div
           className="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-8 transition-all duration-1000"
           style={{ opacity: loaded ? 1 : 0, transitionDelay: '0.7s' }}
