@@ -143,24 +143,23 @@ export default function Reviews() {
             {/* Left card (previous) */}
             <div
               className="hidden md:block flex-shrink-0 cursor-pointer"
-              style={{ width: '280px' }}
+              style={{ width: '320px' }}
               onClick={prev}
             >
               <div
                 className="testimonial-card p-6 h-full text-center"
                 style={{
-                  opacity: animating ? 0 : 0.4,
-                  transform: animating ? 'scale(0.9)' : 'scale(0.92)',
+                  opacity: animating ? 0 : 0.75,
+                  transform: animating ? 'scale(0.95)' : 'scale(0.96)',
                   transition: 'all 0.4s ease',
-                  filter: 'blur(1px)',
                 }}
               >
                 <Stars count={testimonials[getIndex(-1)].stars} />
-                <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-4">
+                <p className="text-white/80 text-sm leading-relaxed mb-6 line-clamp-4">
                   "{testimonials[getIndex(-1)].text}"
                 </p>
-                <p className="text-white/50 font-semibold text-sm">{testimonials[getIndex(-1)].name}</p>
-                <p className="text-white/30 text-xs italic">{testimonials[getIndex(-1)].role}</p>
+                <p className="text-white font-semibold text-sm">{testimonials[getIndex(-1)].name}</p>
+                <p className="text-white/60 text-xs italic">{testimonials[getIndex(-1)].role}</p>
               </div>
             </div>
 
@@ -207,24 +206,23 @@ export default function Reviews() {
             {/* Right card (next) */}
             <div
               className="hidden md:block flex-shrink-0 cursor-pointer"
-              style={{ width: '280px' }}
+              style={{ width: '320px' }}
               onClick={next}
             >
               <div
                 className="testimonial-card p-6 text-center"
                 style={{
-                  opacity: animating ? 0 : 0.4,
-                  transform: animating ? 'scale(0.9)' : 'scale(0.92)',
+                  opacity: animating ? 0 : 0.75,
+                  transform: animating ? 'scale(0.95)' : 'scale(0.96)',
                   transition: 'all 0.4s ease',
-                  filter: 'blur(1px)',
                 }}
               >
                 <Stars count={testimonials[getIndex(1)].stars} />
-                <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-4">
+                <p className="text-white/80 text-sm leading-relaxed mb-6 line-clamp-4">
                   "{testimonials[getIndex(1)].text}"
                 </p>
-                <p className="text-white/50 font-semibold text-sm">{testimonials[getIndex(1)].name}</p>
-                <p className="text-white/30 text-xs italic">{testimonials[getIndex(1)].role}</p>
+                <p className="text-white font-semibold text-sm">{testimonials[getIndex(1)].name}</p>
+                <p className="text-white/60 text-xs italic">{testimonials[getIndex(1)].role}</p>
               </div>
             </div>
           </div>
